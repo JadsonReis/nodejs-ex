@@ -1,23 +1,13 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-{{- if .Values.service.name }}
-  name: {{ .Values.service.name }}
-{{- else }}
-  name: {{ template "fullname" . }}
-{{- end }}
-  labels:
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
-{{- if .Values.service.annotations }}
+  name: {{ .Values.name | quote }}
   annotations:
-{{ toYaml .Values.service.annotations | indent 4 }}
-{{- end }}
+    description: Exposes and load balances the application pods
 spec:
-  type: {{ .Values.service.type }}
   ports:
-  - port: {{ .Values.service.externalPort }}
-    targetPort: {{ .Values.service.internalPort }}
-    protocol: TCP
-    name: http
+  - name: web
+    port: 8080
+    targetPort: 8080
   selector:
-    app: {{ template "fullname" . }}
+    name: {{ .Values.name | quote }}
