@@ -1,9 +1,10 @@
-name: nodejs-ex
-version: 0.1
-description: An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nodejs-ex/blob/master/README.md.
+description: An example Node.js application with no database. For more information
+  about using this template, including OpenShift considerations, see https://github.com/sclorg/nodejs-ex/blob/master/README.md.
+home: https://access.redhat.com
 keywords:
 - quickstart
 - nodejs
-home: https://access.redhat.com
+name: nodejs-ex
 sources:
 - https://github.com/sclorg/nodejs-ex
+version: 1.0.5
